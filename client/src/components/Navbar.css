@@ -1,0 +1,23 @@
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: sticky;
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    list-style-type: none;
+    background-color: rgb(223, 225, 252);
+}
+
+.navbar-item:hover {
+    background-color: white;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+

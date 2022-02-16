@@ -1,0 +1,30 @@
+
+.dailytask {
+    background-color: rgb(235, 235, 235);
+    height: 300px;
+    width: 12%;
+    margin: 10px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 2px;
+    
+}
+
+.input {
+    height: 24px;
+    width: fit-content;
+    min-width: 80px;
+    background-color: transparent;
+    border: solid 1px;
+    border-color: rgb(194, 194, 194);
+    border-radius: 4px;
+}
