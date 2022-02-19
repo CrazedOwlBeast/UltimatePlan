@@ -11,16 +11,21 @@ const Goals = () => {
           <div className='goals-container'>
             <div className='goals-content'>
               <div className='goals-category'>
-                <p>Goals</p>
                 Category
               </div>
+              <ul className='ul'>
+                <li className='goal-item'>Test</li>
+                <li>Test</li>
+                <li>Test</li>
+              </ul>
             </div>
           </div>
         </div>
         <div className='goals-right-container'>
           <div className='goals-input'>
-            <div className='input-content'>
+            <div className='goals-input-content'>
               <textarea className='feed-input' placeholder='Post an update'></textarea>
+              <button className='post-btn'>Post</button>
             </div>
           </div>
           <div clsasName='feed'>
