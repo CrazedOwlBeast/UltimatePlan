@@ -34,6 +34,18 @@ router.put('/:id', async (req, res) => {
         if (!task) 
             return res.status(400).json({errorMessage: "Error: Task not found."});
         
+        // Check for user
+        if (!req.user) {
+            res.status(401)
+            throw new Error('User not found')
+        }
+     
+        // Make sure the logged in user matches the goal user
+        if (goal.user.toString() !== req.user.id) {
+            res.status(401)
+            throw new Error('User not authorized')
+        }
+        
         const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
         });
@@ -51,6 +63,18 @@ router.delete('/:id', async (req, res) => {
         if (!task) 
             return res.status(400).json({errorMessage: "Error: Task not found."});
         
+        // Check for user
+        if (!req.user) {
+            res.status(401)
+            throw new Error('User not found')
+            }
+     
+        // Make sure the logged in user matches the goal user
+        if (goal.user.toString() !== req.user.id) {
+            res.status(401)
+            throw new Error('User not authorized')
+        }
+
         await task.deleteOne();
 
         res.json(task);

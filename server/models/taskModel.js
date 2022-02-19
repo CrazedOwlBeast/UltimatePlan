@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const eventSchema = new mongoose.Schema({
+const taskSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -17,6 +17,9 @@ const eventSchema = new mongoose.Schema({
         required: true,
         ref: 'User',
       },
+    /*added: {
+
+    } */
 });
 
 module.exports = mongoose.model('Task', taskSchema);
