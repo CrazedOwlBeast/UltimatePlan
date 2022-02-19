@@ -8,16 +8,20 @@
     height: 100%;
     padding: 10px;
     list-style-type: none;
-    background-color: rgb(223, 225, 252);
+    background-color: rgb(135, 170, 139);
 }
 
 .navbar-item:hover {
-    background-color: white;
 }
 
 .link {
     text-decoration: none;
-    color: black;
+    color: #fff;
     font-size: 18px;
 }
+
+.link:hover {
+    color: rgb(187, 187, 187);
+}
+
 

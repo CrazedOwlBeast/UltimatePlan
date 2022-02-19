@@ -1,9 +1,22 @@
 
 .dailytask {
-    background-color: rgb(235, 235, 235);
+    background-color: #fff;
     height: 300px;
     width: 12%;
+    height: 70%;
     margin: 10px;
+    box-shadow: 4px 4px 8px rgb(187, 187, 187);
+    border-radius: 10px;
+}
+
+.dailytask-content {
+    margin: 1vh 1vw;
+}
+
+.daily-title {
+    font-size: 2.5vh;
+    font-weight: 500;
+    margin: 1vh 0;
 }
 
 .form-container {
@@ -14,17 +27,31 @@
 .form {
     display: flex;
     justify-content: center;
-    width: 80%;
-    margin: 2px;
-    
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
 }
 
 .input {
-    height: 24px;
-    width: fit-content;
-    min-width: 80px;
+    height: 3.5vh;
+    width: 90%;
     background-color: transparent;
     border: solid 1px;
     border-color: rgb(194, 194, 194);
     border-radius: 4px;
+}
+
+.submit-btn {
+    margin: 2vh 0;
+    background-color: rgb(145, 185, 223);
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    height: 4vh;
+    width: 80%;
+    border-radius: 14px;
+}
+
+.submit-btn:hover {
+    background-color: rgb(194, 222, 248);
 }

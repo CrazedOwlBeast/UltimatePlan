@@ -16,7 +16,11 @@ const Navbar = () => {
                     Weekly
                 </Link>
             </li>
-            
+            <li className='navbar-item'>
+                <Link to='/Goals' className='link'>
+                    Goals
+                </Link>
+            </li>
         </nav>
     </div>
   )

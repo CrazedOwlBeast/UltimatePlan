@@ -1,0 +1,58 @@
+
+.sharedgoal {
+    width: 80%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px rgb(187, 187, 187);
+    margin: 2vh 0;
+}
+
+.sharedgoal-content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2vh 2vw;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    height: 20%;
+}
+
+.user {
+    font-size: 4vh;
+    font-weight: 500;
+}
+
+.goal-container {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    background-color: rgb(241, 240, 240);
+    border-radius: 10px;
+}
+
+.goal {
+    font-size: 2.5vh;
+    padding: 0 1vh;
+}
+
+.update-container {
+    display: flex;
+    align-items: center;
+    height: 40%;
+}
+
+.update {
+    font-size: 2.5vh;
+}
+
+.status-container {
+}
+
