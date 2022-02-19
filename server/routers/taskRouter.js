@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const Event = require('../models/eventModel');
+const Task = require('../models/taskModel');
 
 router.get('/', async (req, res) => {
     try {
-        events = await Event.find(); //to do: by user
-        res.json(events);
+        tasks = await Task.find(); //to do: by user
+        res.json(tasks);
     } catch (err) {
         console.error(err);
         res.status(400).send();
@@ -13,14 +13,14 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const event = await Event.create({
+        const task = await Task.create({
             title: req.body.title,
             text: req.body.text,
             time: req.body.time
             //userid?
         })
 
-        res.json(event);
+        res.json(task);
     } catch (err) {
         console.error(err);
         res.status(400).send();
@@ -29,16 +29,16 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const event = await Event.findById(req.params.id);
+        const task = await Task.findById(req.params.id);
         //validate
-        if (!event) 
-            return res.status(400).json({errorMessage: "Error: Event not found."});
+        if (!task) 
+            return res.status(400).json({errorMessage: "Error: Task not found."});
         
-        const updatedEvent = await Event.findByIdAndUpdate(req.params.id, req.body, {
+        const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
         });
 
-        res.json(updatedEvent);
+        res.json(updatedTask);
     } catch (err) {
         res.status(400).send();
     }
@@ -46,14 +46,14 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const event = await Event.findById(req.params.id);
+        const task = await Task.findById(req.params.id);
         //validate
-        if (!event) 
-            return res.status(400).json({errorMessage: "Error: Event not found."});
+        if (!task) 
+            return res.status(400).json({errorMessage: "Error: Task not found."});
         
-        await event.deleteOne();
+        await task.deleteOne();
 
-        res.json(event);
+        res.json(task);
     } catch (err) {
         res.status(400).send();
     }

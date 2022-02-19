@@ -11,8 +11,12 @@ const eventSchema = new mongoose.Schema({
     time: {
         type: Date,
         required: true
-    }
-    //account?
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User',
+      },
 });
 
-module.exports = mongoose.model('Event', eventSchema);
+module.exports = mongoose.model('Task', taskSchema);
