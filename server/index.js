@@ -19,3 +19,4 @@ app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
 app.use('/tasks', require('./routers/taskRouter'));
 app.use('/goals', require('./routers/goalRouter'));
+app.use('/users', require('./routers/userRouter'));
