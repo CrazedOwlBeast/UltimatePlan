@@ -23,8 +23,8 @@ const Goals = () => {
         </div>
         <div className='goals-right-container'>
           <div className='goals-input'>
-            <div className='goals-input-content'>
-              <textarea className='feed-input' placeholder='Post an update'></textarea>
+            <div className='goals-post-content'>
+              <textarea className='post-input' placeholder='Post an update'></textarea>
               <button className='post-btn'>Post</button>
             </div>
           </div>
