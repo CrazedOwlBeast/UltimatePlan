@@ -17,5 +17,5 @@ mongoose.connect(
 
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
-app.use('/events', require('./routers/eventRouter'));
+app.use('/tasks', require('./routers/taskRouter'));
 app.use('/goals', require('./routers/goalRouter'));
