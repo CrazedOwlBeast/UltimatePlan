@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const Task = require('../models/taskModel');
+const { requiresAuth } = require('express-openid-connect');
 
-router.get('/', async (req, res) => {
+//get tasks
+router.get('/', requiresAuth(), async (req, res) => {
     try {
-        tasks = await Task.find(); //to do: by user
+        tasks = await Task.find({ user: req.oidc.user.email }); //to do: by user
         res.json(tasks);
     } catch (err) {
         console.error(err);
@@ -11,13 +13,13 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+//create task
+router.post('/', requiresAuth(), async (req, res) => {
     try {
         const task = await Task.create({
-            title: req.body.title,
             text: req.body.text,
-            time: req.body.time
-            //userid?
+            time: req.body.time,
+            user: req.oidc.user.email
         })
 
         res.json(task);
@@ -27,7 +29,8 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+//change task
+router.put('/:id', requiresAuth(), async (req, res) => {
     try {
         const task = await Task.findById(req.params.id);
         //validate
@@ -35,16 +38,16 @@ router.put('/:id', async (req, res) => {
             return res.status(400).json({errorMessage: "Error: Task not found."});
         
         // Check for user
-        if (!req.user) {
-            res.status(401)
-            throw new Error('User not found')
-        }
+        // if (!req.user) {
+        //     res.status(401)
+        //     throw new Error('User not found')
+        // }
      
         // Make sure the logged in user matches the goal user
-        if (goal.user.toString() !== req.user.id) {
-            res.status(401)
-            throw new Error('User not authorized')
-        }
+        // if (goal.user.toString() !== req.user.id) {
+        //     res.status(401)
+        //     throw new Error('User not authorized')
+        // }
         
         const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
@@ -56,7 +59,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requiresAuth(), async (req, res) => {
     try {
         const task = await Task.findById(req.params.id);
         //validate
@@ -64,16 +67,16 @@ router.delete('/:id', async (req, res) => {
             return res.status(400).json({errorMessage: "Error: Task not found."});
         
         // Check for user
-        if (!req.user) {
-            res.status(401)
-            throw new Error('User not found')
-            }
+        // if (!req.user) {
+        //     res.status(401)
+        //     throw new Error('User not found')
+        //     }
      
-        // Make sure the logged in user matches the goal user
-        if (goal.user.toString() !== req.user.id) {
-            res.status(401)
-            throw new Error('User not authorized')
-        }
+        // // Make sure the logged in user matches the goal user
+        // if (goal.user.toString() !== req.user.id) {
+        //     res.status(401)
+        //     throw new Error('User not authorized')
+        // }
 
         await task.deleteOne();
 

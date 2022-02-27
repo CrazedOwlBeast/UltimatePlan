@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const goalSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
     text: {
         type: String,
         required: true
@@ -15,4 +15,4 @@ const goalSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('Goal', goalSchema);
+module.exports = mongoose.model('Post', postSchema);
