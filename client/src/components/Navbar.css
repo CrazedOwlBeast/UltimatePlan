@@ -1,0 +1,27 @@
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: sticky;
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    list-style-type: none;
+    background-color: rgb(135, 170, 139);
+}
+
+.navbar-item:hover {
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.link:hover {
+    color: rgb(187, 187, 187);
+}
+
+
