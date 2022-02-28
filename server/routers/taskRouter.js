@@ -3,9 +3,9 @@ const Task = require('../models/taskModel');
 const { requiresAuth } = require('express-openid-connect');
 
 //get tasks
-router.get('/', requiresAuth(), async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        tasks = await Task.find({ user: req.oidc.user.email }); //to do: by user
+        tasks = await Task.find({ user: req.body.email }); //to do: by user
         res.json(tasks);
     } catch (err) {
         console.error(err);
@@ -14,12 +14,12 @@ router.get('/', requiresAuth(), async (req, res) => {
 });
 
 //create task
-router.post('/', requiresAuth(), async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const task = await Task.create({
             text: req.body.text,
             time: req.body.time,
-            user: req.oidc.user.email
+            user: req.body.email
         })
 
         res.json(task);
@@ -30,7 +30,7 @@ router.post('/', requiresAuth(), async (req, res) => {
 });
 
 //change task
-router.put('/:id', requiresAuth(), async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const task = await Task.findById(req.params.id);
         //validate
@@ -59,7 +59,7 @@ router.put('/:id', requiresAuth(), async (req, res) => {
     }
 });
 
-router.delete('/:id', requiresAuth(), async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const task = await Task.findById(req.params.id);
         //validate

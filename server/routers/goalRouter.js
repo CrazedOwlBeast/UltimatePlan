@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const Goal = require('../models/goalModel');
 //const User = require('../models/userModel');
-const { requiresAuth } = require('express-openid-connect');
+//const { requiresAuth } = require('express-openid-connect');
 
-router.get('/mygoals', requiresAuth(), async (req, res) => {
+router.get('/mygoals', async (req, res) => {
     try {
-        goals = await Goal.find({ user: req.oidc.user.email });
+        goals = await Goal.find();
         res.json(goals);
     } catch (err) {
         console.error(err);
@@ -13,9 +13,9 @@ router.get('/mygoals', requiresAuth(), async (req, res) => {
     }
 });
 
-router.get('/feed', requiresAuth(), async (req, res) => {
+router.get('/feed', async (req, res) => {
     try {
-        goals = await Goal.find({ user: req.oidc.user.email, addedUsers: req.oidc.user.email });
+        goals = await Goal.find({ user: req.body.email, addedUsers: req.body.email });
 
         //addedgoals = await Goal.find({addedUsers: req.user.id})
         res.json(goals);
@@ -25,11 +25,11 @@ router.get('/feed', requiresAuth(), async (req, res) => {
     }
 });
 
-router.post('/', requiresAuth(), async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const goal = await Goal.create({
             text: req.body.text,
-            user: req.oidc.user.email, //username...
+            user: req.body.email, //username?
             //likes?
         })
 
@@ -41,7 +41,7 @@ router.post('/', requiresAuth(), async (req, res) => {
 });
 
 //change goal
-router.put('/change/:id', requiresAuth(), async (req, res) => {
+router.put('/change/:id', async (req, res) => {
     try {
         const goal = await Goal.findById(req.params.id);
         //validate
@@ -71,7 +71,7 @@ router.put('/change/:id', requiresAuth(), async (req, res) => {
 });
 
 //share goal
-router.put('/share/:id', requiresAuth(), async (req, res) => {
+router.put('/share/:id', async (req, res) => {
     try {
         const goal = await Goal.findById(req.params.id);
         //validate
@@ -100,7 +100,7 @@ router.put('/share/:id', requiresAuth(), async (req, res) => {
     }
 });
 
-router.delete('/:id', requiresAuth(), async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const goal = await Goal.findById(req.params.id);
         //validate
