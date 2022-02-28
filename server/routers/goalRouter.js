@@ -5,7 +5,7 @@ const Goal = require('../models/goalModel');
 
 router.get('/mygoals', async (req, res) => {
     try {
-        goals = await Goal.find();
+        goals = await Goal.find({user: req.body.email});
         res.json(goals);
     } catch (err) {
         console.error(err);
@@ -15,10 +15,11 @@ router.get('/mygoals', async (req, res) => {
 
 router.get('/feed', async (req, res) => {
     try {
-        goals = await Goal.find({ user: req.body.email, addedUsers: req.body.email });
+        mygoals = await Goal.find({ user: req.body.email });
+        friendgoals = await Goal.find({ addedUsers: req.body.email });
 
         //addedgoals = await Goal.find({addedUsers: req.user.id})
-        res.json(goals);
+        res.json({mygoals, friendgoals});
     } catch (err) {
         console.error(err);
         res.status(400).send();
