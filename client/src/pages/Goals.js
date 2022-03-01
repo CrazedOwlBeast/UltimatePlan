@@ -6,48 +6,48 @@ import Dropdown from 'react-dropdown';
 const Goals = () => {
 
   
-  const axios = require('axios');
+  // const axios = require('axios');
 
-  const handlePost = () => {
-      axios.put('/share/:id', {
-          // text: 'testing the post',
-          // user: 'testUser'
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
+  // const handlePost = () => {
+  //     axios.put('/share/:id', {
+  //         // text: 'testing the post',
+  //         // user: 'testUser'
+  //       })
+  //       .then(function (response) {
+  //         console.log(response);
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error);
+  //       });
+  //   }
 
-  const handleGoalPost = () => {
-    axios.post('/', {
-        text: 'testing the post',
-        user: 'testUser'
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
+  // const handleGoalPost = () => {
+  //   axios.post('/', {
+  //       text: 'testing the post',
+  //       user: 'testUser'
+  //     })
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  //   }
 
   const options = [
     'one', 'two', 'three'
   ];
 
-  useEffect(() => {
-    axios.get('/mygoals')
-    .then(function (response) {
-      options = JSON.parse(response);
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  });
+  // useEffect(() => {
+  //   axios.get('/mygoals')
+  //   .then(function (response) {
+  //     options = JSON.parse(response);
+  //     console.log(response);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   })
+  // });
 
   return (
     <div className='goals'>
@@ -55,7 +55,7 @@ const Goals = () => {
           <div className='new-goal-container'>
             <div className='new-goal'>
              <textarea className='new-goal-input' placeholder='Add new goal'></textarea>
-             <button className='post-goal-btn' onClick={handleGoalPost}>Post</button>
+             <button className='post-goal-btn'>Post</button>
             </div>
           </div>
           <div className='goals-container'>
@@ -76,10 +76,10 @@ const Goals = () => {
             <div className='goals-post-content'>
               <Dropdown options={options} className='dropdown' placeholder='Select a goal' />
               <textarea className='post-input' placeholder='Post an update'></textarea>
-              <button className='post-btn' onClick={handlePost}>Post</button>
+              <button className='post-btn'>Post</button>
             </div>
           </div>
-          <div clsasName='feed'>
+          <div className='feed'>
             <SharedGoal user='User' goal='This is a random goal' update='This is a random update for the goal'/>
             <SharedGoal user='User' goal='This is a random goal' update='This is a random update for the goal'/>
             <SharedGoal user='User' goal='This is a random goal' update='This is a random update for the goal'/>
