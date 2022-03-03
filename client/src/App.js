@@ -8,6 +8,9 @@ import Navbar from './components/Navbar'
 
 
 const App = () => {
+
+const [loggedIn, setLoggedIn]
+
   return (
     <div>
       <Navbar/>
