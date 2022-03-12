@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from "axios"
+import { Link } from 'react-router-dom'
+import './Home.css'
 
 async function callLogin(e) {
   try {
@@ -12,9 +14,15 @@ async function callLogin(e) {
 
 const Home = () => {
   return (
-    <div>
-      <button onClick={callLogin}>Login</button>
-        Home
+    <div className='home'> 
+      {/* <button onClick={callLogin}>Login</button> */}
+      <h1>Welcome to Ultimate Plan!</h1>
+      <p className='home-description'>Our application allows you to keep track of your goals and plans</p>
+      <div className='home-login-container'> 
+          <Link to='/Login' onClick={callLogin} className='home-login'>
+              Click here to get started
+          </Link>
+      </div>
     </div>
   )
 }
