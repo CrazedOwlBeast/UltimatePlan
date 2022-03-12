@@ -1,8 +1,9 @@
-import React from 'react'
+import  {React } from 'react'
 import './SharedGoal.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaRegHeart } from 'react-icons/fa';
 
 const SharedGoal = ({user, goal, update}) => {
+
   return (
     <div className='sharedgoal'>
         <div className='sharedgoal-content'>
@@ -16,8 +17,9 @@ const SharedGoal = ({user, goal, update}) => {
                 <p className='update'>{update}</p>
             </div>
             <div className='status-container'>
-                {/* <FontAwesomeIcon icon="faCoffee" /> */}
-                <p>Heart</p>
+                <FaRegHeart/>
+                <button>Delete</button>
+                <button>Edit</button>
             </div>
         </div>
     </div>
