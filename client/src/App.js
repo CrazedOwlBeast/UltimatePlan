@@ -9,7 +9,7 @@ import Navbar from './components/Navbar'
 
 const App = () => {
 
-const [loggedIn, setLoggedIn]
+//const [loggedIn, setLoggedIn]
 
   return (
     <div>

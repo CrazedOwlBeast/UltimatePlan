@@ -54,6 +54,34 @@ const Goals = () => {
 
   const [options, setOptions] = useState(['one', 'two', 'three']);
   const [goal_text, setGoalText] = useState('');
+  const [post_text, setPostText] = useState('');
+  const [selected_goal, setSelectedGoal] = useState('');
+  const [posts, setPosts] = useState([
+    { 
+      id: 1,
+      user: 'User',
+      goal: 'random goal',
+      update: 'random update',
+      date: new Date('2022-01-10'),
+    },
+    { 
+      id: 2,
+      user: 'User',
+      goal: 'random goal',
+      update: 'random update',
+      date: new Date('2022-02-10'),
+    },
+    { 
+      id: 3,
+      user: 'User',
+      goal: 'random goal',
+      update: 'random update',
+      date: new Date('2022-03-10'),
+    },
+  ])
+  // const [post_users, postUser] = useState([]);
+  // const [post_goals, postGoal] = useState([]);
+  // const [post_updates, postUpdate] = useState([]);
 
   const handleNewGoal = (e) => {
     console.log('didnt get here');
@@ -70,7 +98,16 @@ const Goals = () => {
   } 
 
   const handlePost = (e) => {
-    
+    let new_post = {
+      id: posts.length,
+      user: 'User',
+      goal: selected_goal,
+      update: post_text,
+      date: new Date(),
+    }
+    const newList = posts.concat(new_post)
+    setPosts(newList)
+    setPostText('')
   }
   
   return (
@@ -104,15 +141,28 @@ const Goals = () => {
         <div className='goals-right-container'>
           <div className='goals-input'>
             <div className='goals-post-content'>
-              <Dropdown options={options} className='dropdown' placeholder='Select a goal' />
-              <textarea className='post-input' placeholder='Post an update'></textarea>
+              <Dropdown 
+              options={options} 
+              className='dropdown' 
+              placeholder='Select a goal' 
+              value={options[0]}
+              onChange={(e)=>setSelectedGoal(e.value)}
+              />
+              <textarea 
+              className='post-input' 
+              placeholder='Post an update'
+              value={post_text}
+              onChange={(e) => setPostText(e.target.value)}
+              ></textarea>
               <button className='post-btn' onClick={handlePost}>Post</button>
             </div>
           </div>
           <div className='feed'>
-            <SharedGoal user='User' goal='This is a random goal' update='This is a random update for the goal'/>
-            <SharedGoal user='User' goal='This is a random goal' update='This is a random update for the goal'/>
-            <SharedGoal user='User' goal='This is a random goal' update='This is a random update for the goal'/>
+            <>
+              {posts.map((post) => (
+                <SharedGoal key={post.id} user={post.user} goal={post.goal} update={post.update}/>
+              )).sort((a, b) => b.date-a.date).reverse()}
+            </>
           </div>
         </div>
     </div>

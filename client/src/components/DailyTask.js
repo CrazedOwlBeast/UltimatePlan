@@ -53,7 +53,10 @@ const DailyTask = ({Day}) => {
         </div>
         <div className='form-container'>
           <form className='form'>
-            <input className='input' />
+            <input className='input' 
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            />
             <button className='submit-btn' onClick={handleTask}>Submit</button>
           </form>
         </div>
