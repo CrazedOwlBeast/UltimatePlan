@@ -48,7 +48,7 @@ const DailyTask = ({Day}) => {
   return (
     <div className='dailytask'>
       <div className='dailytask-content'>
-        <div className='daily-title'>
+        <div className='day-title'>
           {Day}
         </div>
         <div className='form-container'>
@@ -61,10 +61,7 @@ const DailyTask = ({Day}) => {
           </form>
         </div>
         <div className='tasks-container'>
-          <p className='daily-title'>Tasks</p>
-          <ul className='ul'>
-
-          </ul>
+          <p className='task-title'>Tasks</p>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
     height: 100%;
     padding: 10px;
     list-style-type: none;
-    background-color: rgb(135, 170, 139);
+    background-color: rgb(145, 185, 223);
 }
 
 .navbar-item:hover {
@@ -21,7 +21,7 @@
 }
 
 .link:hover {
-    color: rgb(187, 187, 187);
+    color: rgb(215, 226, 255);
 }
 
 

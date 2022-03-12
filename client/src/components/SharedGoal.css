@@ -7,9 +7,9 @@
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 4px 4px 8px rgb(187, 187, 187);
-    margin: 2vh 0;
+    margin: 4vh 0;
 }
 
 .sharedgoal-content {
@@ -34,12 +34,13 @@
     display: flex;
     align-items: center;
     height: 20%;
-    background-color: rgb(241, 240, 240);
-    border-radius: 10px;
+    background-color: rgba(255, 209, 157, 0.301);
+    border-radius: 5px;
 }
 
 .goal {
     font-size: 2.5vh;
+    font-style: italic;
     padding: 0 1vh;
 }
 

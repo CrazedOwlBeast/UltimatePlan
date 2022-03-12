@@ -4,10 +4,6 @@ import './Goals.css'
 import SharedGoal from '../components/SharedGoal'
 import Dropdown from 'react-dropdown';
 
-
-
-
-
 const Goals = () => {
 
   
@@ -50,7 +46,6 @@ const Goals = () => {
   //     console.log(error);
   //   })
   // });
-  
 
   const [options, setOptions] = useState(['one', 'two', 'three']);
   const [goal_text, setGoalText] = useState('');
@@ -130,7 +125,6 @@ const Goals = () => {
                 Goal Category
               </div>
               <ul className='ul' id='my-goals'>
-
                 <li className='goal-item'>Goal</li>
                 <li className='goal-item'>Goal</li>
                 <li className='goal-item'>Goal</li>

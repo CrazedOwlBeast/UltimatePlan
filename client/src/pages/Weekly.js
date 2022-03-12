@@ -20,13 +20,27 @@ const Weekly = () => {
         </div>
       </div>
       <div className='weekly-bottom-container'>
-        <DailyTask Day='Monday'/>
-        <DailyTask Day='Tuesday'/>
-        <DailyTask Day='Wednesday'/>
-        <DailyTask Day='Thursday'/>
-        <DailyTask Day='Friday'/>
-        <DailyTask Day='Saturday'/>
-        <DailyTask Day='Sunday'/>
+        <div className='mon'>
+         <DailyTask Day='Monday'/>
+        </div>
+         <div className='tues'>
+           <DailyTask Day='Tuesday'/>
+        </div>
+        <div className='wed'>
+          <DailyTask Day='Wednesday'/>
+        </div>
+        <div className='thurs'>
+          <DailyTask Day='Thursday'/>
+        </div>
+        <div className='fri'>
+          <DailyTask Day='Friday'/>  
+        </div>
+        <div className='sat'>
+          <DailyTask Day='Saturday'/>
+        </div>
+        <div className='sun'>
+          <DailyTask Day='Sunday'/>
+        </div>
       </div>
 
     </div>
