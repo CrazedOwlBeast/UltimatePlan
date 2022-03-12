@@ -62,6 +62,9 @@ const DailyTask = ({Day}) => {
         </div>
         <div className='tasks-container'>
           <p className='task-title'>Tasks</p>
+          <ul className='ul'>
+
+          </ul>
         </div>
       </div>
     </div>
