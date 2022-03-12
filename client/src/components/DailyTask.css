@@ -61,8 +61,8 @@
     font-weight: 500;
     border: none;
     height: 4vh;
-    width: 80px;
-    border-radius: 14px;
+    width: 85px;
+    border-radius: 20px;
 }
 
 .submit-btn:hover {
