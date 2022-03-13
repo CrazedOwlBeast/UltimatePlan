@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import './Profile.css'
 
-const Profile = () => {
+const Profile = ({friendsList, addFriend}) => {
 
-    const [friendsList, setFriendsList] = useState(['Jane Doe']);
+    
     const [friend, setFriend] = useState('');
 
     const handleFriends = (e) => {
         e.preventDefault();
-        const newList = friendsList.concat(friend);
-        setFriendsList(newList);
+        
+        addFriend(friend);
+
         setFriend('');
     }
 

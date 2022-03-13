@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -11,7 +11,14 @@ import Navbar from './components/Navbar'
 
 const App = () => {
 
-//const [loggedIn, setLoggedIn]
+//const [loggedIn, setLoggedIn] = useState();
+const [friendsList, setFriendsList] = useState(['Jane Doe']);
+
+//Add Friend
+const addFriend = (friend) => {
+  const newList = friendsList.concat(friend);
+  setFriendsList(newList);
+}
 
   return (
     <div>
@@ -19,8 +26,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/Weekly' element={<Weekly />}/>
-        <Route path='/Goals' element={<Goals />}/>
-        <Route path='/Profile' element={<Profile />}/>
+        <Route path='/Goals' element={<Goals friendsList={friendsList}/>}/>
+        <Route path='/Profile' element={<Profile addFriend={addFriend} friendsList={friendsList} />}/>
         <Route path='/Login' element={<Login />}/>
       </Routes>
     </div>
