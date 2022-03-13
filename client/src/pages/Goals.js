@@ -4,8 +4,10 @@ import './Goals.css'
 import SharedGoal from '../components/SharedGoal'
 import Goal from '../components/Goal'
 import Dropdown from 'react-dropdown';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
-const Goals = () => {
+const Goals = ({friendsList}) => {
 
   
   // const axios = require('axios');
@@ -133,7 +135,7 @@ const Goals = () => {
               <ul className='ul' id='my-goals'>
               <>
               {goals_list.map((goal) => (
-                <Goal goal={goal}/>
+                <Goal goal={goal} friendsList={friendsList}/>
               ))}
               </>
                 {/* <li className='goal-item'>Goal</li>
