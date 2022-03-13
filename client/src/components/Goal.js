@@ -5,7 +5,14 @@ const Goal = ({goal}) => {
   
   return (
     <div className='mygoal'>
-      <li></li>
+      <div className='goal-container'>
+        <p>{goal}</p>
+      </div>
+      <div className='status-container'>
+          <button>Share</button>
+          <button>Delete</button>
+          <button>Edit</button>
+      </div>
     </div>
   )
 }

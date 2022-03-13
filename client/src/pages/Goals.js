@@ -2,6 +2,7 @@ import { createElement, React, useEffect, useState } from 'react'
 import {v4 as uuidv4} from 'uuid'
 import './Goals.css'
 import SharedGoal from '../components/SharedGoal'
+import Goal from '../components/Goal'
 import Dropdown from 'react-dropdown';
 
 const Goals = () => {
@@ -48,7 +49,9 @@ const Goals = () => {
   // });
 
   const [options, setOptions] = useState(['one', 'two', 'three']);
-  const [goal_text, setGoalText] = useState('');
+  const [goals_list, setGoalsList] = useState(['Goal 1', 'Goal 2', 'Goal 3']);
+  const [goal_text, setGoalText] = useState();
+
   const [post_text, setPostText] = useState('');
   const [selected_goal, setSelectedGoal] = useState('');
   const [posts, setPosts] = useState([
@@ -79,12 +82,15 @@ const Goals = () => {
   // const [post_updates, postUpdate] = useState([]);
 
   const handleNewGoal = (e) => {
-    console.log('didnt get here');
-    let list = document.getElementsByClassName('ul')[0];
-    let entry = document.createElement('li');
-    entry.className = 'goal-item';
-    entry.appendChild(document.createTextNode(goal_text));
-    list.appendChild(entry);
+
+    // let list = document.getElementsByClassName('ul')[0];
+    // let entry = document.createElement('li');
+    // entry.className = 'goal-item';
+    // entry.appendChild(document.createTextNode(goal_text));
+    // list.appendChild(entry);
+
+    const newGoals = goals_list.concat(goal_text);
+    setGoalsList(newGoals);
 
     const newList = options.concat(goal_text);
     setOptions(newList);
@@ -125,9 +131,14 @@ const Goals = () => {
                 Goal Category
               </div>
               <ul className='ul' id='my-goals'>
+              <>
+              {goals_list.map((goal) => (
+                <Goal goal={goal}/>
+              ))}
+              </>
+                {/* <li className='goal-item'>Goal</li>
                 <li className='goal-item'>Goal</li>
-                <li className='goal-item'>Goal</li>
-                <li className='goal-item'>Goal</li>
+                <li className='goal-item'>Goal</li> */}
               </ul>
             </div>
           </div>
