@@ -50,8 +50,8 @@ const Goals = ({friendsList}) => {
   //   })
   // });
 
-  const [options, setOptions] = useState(['one', 'two', 'three']);
-  const [goals_list, setGoalsList] = useState(['Goal 1', 'Goal 2', 'Goal 3']);
+  const [options, setOptions] = useState(['']);
+  const [goals_list, setGoalsList] = useState(['Example Goal 1']);
   const [goal_text, setGoalText] = useState();
 
   const [post_text, setPostText] = useState('');
