@@ -43,9 +43,11 @@ const Profile = ({friendsList, addFriend}) => {
                 <form className='form'>
                     <input className='input' 
                     value={friend}
+                    placeholder="Add Friend"
+                    id='add-friend-input'
                     onChange={(e) => setFriend(e.target.value)}
                     />
-                    <button className='submit-btn' onClick={handleFriends}>Submit</button>
+                    <button id='submit-friend' className='submit-btn' onClick={handleFriends}>Submit</button>
                 </form>
                 </div>
             </div>
