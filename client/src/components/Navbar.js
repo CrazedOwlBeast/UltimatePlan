@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({loggedIn}) => {
   return (
     <div>
         <nav className='navbar'>    
@@ -11,6 +11,8 @@ const Navbar = () => {
                     Home
                 </Link>
             </li>
+            {loggedIn ? 
+            <>
             <li className='navbar-item'>
                 <Link to='/weekly' className='link'>
                     Weekly
@@ -26,6 +28,8 @@ const Navbar = () => {
                     Profile
                 </Link>
             </li>
+            </>
+            : null} 
         </nav>
     </div>
   )

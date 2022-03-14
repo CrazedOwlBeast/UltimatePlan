@@ -11,7 +11,7 @@ import Navbar from './components/Navbar'
 
 const App = () => {
 
-//const [loggedIn, setLoggedIn] = useState();
+const [loggedIn, setLoggedIn] = useState(false);
 const [friendsList, setFriendsList] = useState(['Jane Doe']);
 
 //Add Friend
@@ -20,15 +20,19 @@ const addFriend = (friend) => {
   setFriendsList(newList);
 }
 
+const setlogin = (loginBool) => {
+  setLoggedIn(loginBool);
+}
+
   return (
     <div>
-      <Navbar/>
+      <Navbar loggedIn={loggedIn}/>
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/Weekly' element={<Weekly />}/>
-        <Route path='/Goals' element={<Goals friendsList={friendsList}/>}/>
-        <Route path='/Profile' element={<Profile addFriend={addFriend} friendsList={friendsList} />}/>
-        <Route path='/Login' element={<Login />}/>
+        <Route path='/' element={<Home loggedIn={loggedIn} login={setlogin} />}/>
+        <Route path='/Weekly' element={<Weekly loggedIn={loggedIn}/>}/>
+        <Route path='/Goals' element={<Goals loggedIn={loggedIn} friendsList={friendsList}/>}/>
+        <Route path='/Profile' element={<Profile loggedIn={loggedIn} addFriend={addFriend} friendsList={friendsList} />}/>
+        <Route path='/Login' element={<Login login={setlogin} />}/>
       </Routes>
     </div>
   )
