@@ -12,25 +12,25 @@ const DailyTask = ({Day, DayDate}) => {
     var x = 0;
     switch (Day) {
       case 'Monday':
-        x = 0;
-        break;
-      case 'Tuesday':
         x = 1;
         break;
-      case 'Wednesday':
+      case 'Tuesday':
         x = 2;
         break;
-      case 'Thursday':
+      case 'Wednesday':
         x = 3;
         break;
-      case 'Friday':
+      case 'Thursday':
         x = 4;
         break;
-      case 'Saturday':
+      case 'Friday':
         x = 5;
         break;
-      case 'Sunday':
+      case 'Saturday':
         x = 6;
+        break;
+      case 'Sunday':
+        x = 0;
         break;
       default:
         break;

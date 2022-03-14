@@ -7,7 +7,7 @@ import Dropdown from 'react-dropdown';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const Goals = ({friendsList}) => {
+const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
 
   
   // const axios = require('axios');
@@ -50,67 +50,37 @@ const Goals = ({friendsList}) => {
   //   })
   // });
 
-  const [options, setOptions] = useState(['']);
-  const [goals_list, setGoalsList] = useState(['Example Goal 1']);
+  //const [options, setOptions] = useState(['']);
   const [goal_text, setGoalText] = useState();
-
   const [post_text, setPostText] = useState('');
   const [selected_goal, setSelectedGoal] = useState('');
-  const [posts, setPosts] = useState([
-    { 
-      id: 1,
-      user: 'User',
-      goal: 'random goal',
-      update: 'random update',
-      date: new Date('2022-01-10'),
-    },
-    { 
-      id: 2,
-      user: 'User',
-      goal: 'random goal',
-      update: 'random update',
-      date: new Date('2022-02-10'),
-    },
-    { 
-      id: 3,
-      user: 'User',
-      goal: 'random goal',
-      update: 'random update',
-      date: new Date('2022-03-10'),
-    },
-  ])
-  // const [post_users, postUser] = useState([]);
-  // const [post_goals, postGoal] = useState([]);
-  // const [post_updates, postUpdate] = useState([]);
+  
 
   const handleNewGoal = (e) => {
+    AddGoal(goal_text);
 
-    // let list = document.getElementsByClassName('ul')[0];
-    // let entry = document.createElement('li');
-    // entry.className = 'goal-item';
-    // entry.appendChild(document.createTextNode(goal_text));
-    // list.appendChild(entry);
-
-    const newGoals = goals_list.concat(goal_text);
-    setGoalsList(newGoals);
-
-    const newList = options.concat(goal_text);
-    setOptions(newList);
+    // const newList = options.concat(goal_text);
+    // setOptions(newList);
 
     setGoalText('');
   } 
 
   const handlePost = (e) => {
+    console.log(selected_goal);
+    if (!selected_goal) {
+      alert('Please select a goal to post the update for')
+    }
+    else {
     let new_post = {
-      id: posts.length,
+      id: uuidv4(),
       user: 'User',
       goal: selected_goal,
       update: post_text,
       date: new Date(),
     }
-    const newList = posts.concat(new_post)
-    setPosts(newList)
-    setPostText('')
+    AddPost(new_post);
+    setPostText('');
+    }
   }
   
   return (
@@ -135,7 +105,7 @@ const Goals = ({friendsList}) => {
               <ul className='ul' id='my-goals'>
               <>
               {goals_list.map((goal) => (
-                <Goal goal={goal} friendsList={friendsList}/>
+                <Goal key={uuidv4()} goal={goal} friendsList={friendsList}/>
               ))}
               </>
                 {/* <li className='goal-item'>Goal</li>
@@ -149,10 +119,10 @@ const Goals = ({friendsList}) => {
           <div className='goals-input'>
             <div className='goals-post-content'>
               <Dropdown 
-              options={options} 
+              options={goals_list} 
               className='dropdown' 
               placeholder='Select a goal' 
-              value={options[0]}
+              value='Select a goal'
               onChange={(e)=>setSelectedGoal(e.value)}
               />
               <textarea 
