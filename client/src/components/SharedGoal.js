@@ -17,9 +17,9 @@ const SharedGoal = ({user, goal, update}) => {
                 <p className='update'>{update}</p>
             </div>
             <div className='status-container'>
-                <FaRegHeart/>
-                <button>Delete</button>
-                <button>Edit</button>
+                {/* <FaRegHeart/> */}
+                {/* <button>Delete</button>
+                <button>Edit</button> */}
             </div>
         </div>
     </div>

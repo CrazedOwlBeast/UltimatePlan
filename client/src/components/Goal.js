@@ -30,8 +30,8 @@ const Goal = ({goal, friendsList}) => {
           </div>
           )}
           </Popup>
-          <button>Delete</button>
-          <button>Edit</button>
+          {/* <button>Delete</button>
+          <button>Edit</button> */}
       </div>
     </div>
   )
