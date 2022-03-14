@@ -29,3 +29,7 @@
 #popup-share-btn:hover {
     color: rgb(194, 222, 248);
 }
+
+#goal-item {
+    padding: 0 10px;
+}

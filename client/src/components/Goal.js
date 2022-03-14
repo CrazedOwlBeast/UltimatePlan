@@ -8,7 +8,7 @@ const Goal = ({goal, friendsList}) => {
   return (
     <div className='mygoal'>
       <div className='goal-container'>
-        <p>{goal}</p>
+        <p id='goal-item'>{goal}</p>
       </div>
       <div className='status-container'>
           <Popup trigger={<button id='share-btn'>Share</button>} position="right center">
