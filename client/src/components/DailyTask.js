@@ -2,7 +2,7 @@ import {React, useState} from 'react'
 import './DailyTask.css'
 import { Button } from '@mui/material';
 
-const DailyTask = ({Day}) => {
+const DailyTask = ({Day, DayDate}) => {
 
   const [task, setTask] = useState('');
 
@@ -49,11 +49,11 @@ const DailyTask = ({Day}) => {
     <div className='dailytask'>
       <div className='dailytask-content'>
         <div className='day-title'>
-          {Day}
+          <strong>{Day}</strong> {DayDate}
         </div>
         <div className='form-container'>
           <form className='form'>
-            <input className='input' 
+            <input autofocus className='input' 
             value={task}
             onChange={(e) => setTask(e.target.value)}
             />
@@ -61,7 +61,7 @@ const DailyTask = ({Day}) => {
           </form>
         </div>
         <div className='tasks-container'>
-          <p className='task-title'>Tasks</p>
+          <p className='task-title'><strong>Tasks</strong></p>
           <ul className='ul'>
 
           </ul>

@@ -43,7 +43,8 @@
     height: 3.5vh;
     width: 90%;
     background-color: transparent;
-    border: none;
+    border: solid 1px;
+    border-color: rgb(197, 197, 197);
     border-radius: 4px;
     font-size: 16px;
     font-family: 'Roboto Serif', sans-serif;
@@ -62,7 +63,7 @@
     border: none;
     height: 4vh;
     width: 85px;
-    border-radius: 20px;
+    border-radius: 18px;
 }
 
 .submit-btn:hover {

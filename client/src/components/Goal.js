@@ -1,6 +1,7 @@
 import React from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './Goal.css'
 
 const Goal = ({goal, friendsList}) => {
 
@@ -10,7 +11,7 @@ const Goal = ({goal, friendsList}) => {
         <p>{goal}</p>
       </div>
       <div className='status-container'>
-          <Popup trigger={<button>Share</button>} position="right center">
+          <Popup trigger={<button id='share-btn'>Share</button>} position="right center">
           {close => (
           <div>
             <form className='form'>
@@ -20,6 +21,7 @@ const Goal = ({goal, friendsList}) => {
               ))}
             </select>
             <button 
+            id='popup-share-btn'
             type='submit'
             onClick={(e) => {
               alert('Goal shared with ' + document.getElementsByName('select')[0].value);
@@ -30,8 +32,8 @@ const Goal = ({goal, friendsList}) => {
           </div>
           )}
           </Popup>
-          <button>Delete</button>
-          <button>Edit</button>
+          {/* <button>Delete</button>
+          <button>Edit</button> */}
       </div>
     </div>
   )
