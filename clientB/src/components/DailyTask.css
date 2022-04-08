@@ -1,0 +1,71 @@
+
+.dailytask {
+    background-color: #fff;
+    height: 100%;
+    box-shadow: 4px 4px 8px rgb(187, 187, 187);
+    border-radius: 5px;
+}
+
+.dailytask-content {
+    padding: 2vh 1vw;
+}
+
+.day-title {
+    font-size: 2.5vh;
+    font-weight: 500;
+    font-style: italic;
+    margin: 1vh 0;
+    width: auto;
+    padding: 4px;
+    background-color: rgba(255, 209, 157, 0.301);
+}
+
+.task-title {
+    font-size: 2.5vh;
+    font-weight: 500;
+    font-style: italic;
+    margin: 1vh 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 90%;
+}
+
+.input {
+    height: 3.5vh;
+    width: 90%;
+    background-color: transparent;
+    border: solid 1px;
+    border-color: rgb(197, 197, 197);
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Roboto Serif', sans-serif;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.submit-btn {
+    font-family: 'Roboto Serif', sans-serif;
+    margin: 2vh 0;
+    background-color: rgb(145, 185, 223);
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    height: 4vh;
+    width: 85px;
+    border-radius: 18px;
+}
+
+.submit-btn:hover {
+    background-color: rgb(194, 222, 248);
+}
