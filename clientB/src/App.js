@@ -7,6 +7,7 @@ import Weekly from './pages/Weekly';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Navbar from './components/Navbar'
+import Friends from './pages/Friends';
 
 
 const App = () => {
@@ -67,6 +68,7 @@ const AddPost = (post) => {
         <Route path='/' element={<Home loggedIn={loggedIn} login={setlogin} />}/>
         <Route path='/Weekly' element={<Weekly loggedIn={loggedIn}/>}/>
         <Route path='/Goals' element={<Goals posts={posts} goals_list={goals_list} AddPost={AddPost} AddGoal={AddGoal} loggedIn={loggedIn} friendsList={friendsList}/>}/>
+        <Route path='/Friends' element={<Friends loggedIn={loggedIn} addFriend={addFriend} friendsList={friendsList}/>}/>
         <Route path='/Profile' element={<Profile loggedIn={loggedIn} addFriend={addFriend} friendsList={friendsList} />}/>
         <Route path='/Login' element={<Login login={setlogin} />}/>
       </Routes>

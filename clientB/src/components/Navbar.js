@@ -24,6 +24,11 @@ const Navbar = ({loggedIn}) => {
                 </Link>
             </li>
             <li className='navbar-item'>
+                <Link to='/Friends' className='link'>
+                    Friends
+                </Link>
+            </li>
+            <li className='navbar-item'>
                 <Link to='/Profile' className='link'>
                     Profile
                 </Link>
