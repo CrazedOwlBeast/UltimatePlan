@@ -53,15 +53,15 @@ const DailyTask = ({Day, DayDate}) => {
         </div>
         <div className='form-container'>
           <form className='form'>
-            <input autofocus className='input' 
+            {/* <input autofocus className='input' 
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            />
-            <button className='submit-btn' onClick={handleTask}>Submit</button>
+            /> */}
+            {/* <button className='submit-btn' onClick={handleTask}>Submit</button> */}
           </form>
         </div>
         <div className='tasks-container'>
-          <p className='task-title'><strong>Tasks</strong></p>
+          {/* <p className='task-title'><strong>Tasks</strong></p> */}
           <ul className='ul'>
 
           </ul>

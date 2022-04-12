@@ -64,31 +64,49 @@ const Weekly = () => {
           {month} {day}, {year} 
         </div>
       </div>
+      <div className='bottom-container'>
       <div className='weekly-bottom-container'>
-      < div className='sun'>
-          <DailyTask Day='Sunday' DayDate={moment().startOf('week').add(0, "days").format("MMM Do YY")}/>
-        </div>
-        <div className='mon'>
+        <div className='day'>
          <DailyTask Day='Monday' DayDate={moment().startOf('week').add(1, "days").format("MMM Do YY")} />
         </div>
-         <div className='tues'>
+         <div className='day'>
            <DailyTask Day='Tuesday' DayDate={moment().startOf('week').add(2, "days").format("MMM Do YY")}/>
         </div>
-        <div className='wed'>
+        <div className='day'>
           <DailyTask Day='Wednesday' DayDate={moment().startOf('week').add(3, "days").format("MMM Do YY")}/>
         </div>
-        <div className='thurs'>
+        <div className='day'>
           <DailyTask Day='Thursday' DayDate={moment().startOf('week').add(4, "days").format("MMM Do YY")}/>
         </div>
-        <div className='fri'>
+        <div className='day'>
           <DailyTask Day='Friday' DayDate={moment().startOf('week').add(5, "days").format("MMM Do YY")}/>  
         </div>
-        <div className='sat'>
+        <div className='day'>
           <DailyTask Day='Saturday' DayDate={moment().startOf('week').add(6, "days").format("MMM Do YY")}/>
         </div>
+        < div className='day'>
+          <DailyTask Day='Sunday' DayDate={moment().startOf('week').add(0, "days").format("MMM Do YY")}/>
+        </div>
       </div>
-
+      <div className='post'>
+        <h3>Add Task</h3>
+        <div className='day-btn-container'>
+          <div className='day-btn'>M</div>
+          <div className='day-btn'>T</div>
+          <div className='day-btn'>W</div>
+          <div className='day-btn'>R</div>
+          <div className='day-btn'>F</div>
+          <div className='day-btn'>S</div>
+          <div className='day-btn'>S</div>
+        </div>
+        <div className='post-input-container'>
+          <textarea className='weekly-post-input'/> 
+        </div>
+          <button className='submit-btn'>Submit</button>
+      </div>
     </div>
+      </div>
+    
   )
 }
 
