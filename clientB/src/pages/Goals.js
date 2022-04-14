@@ -6,12 +6,15 @@ import Goal from '../components/Goal'
 import Dropdown from 'react-dropdown';
 import 'reactjs-popup/dist/index.css';
 import Modal from 'react-modal';
+import GoalCategory from '../components/GoalCategory'
 
-const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
+const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPost, AddGoal}) => {
 
-  const [goal_text, setGoalText] = useState();
+  const [goal_text, setGoalText] = useState('');
   const [post_text, setPostText] = useState('');
+  const [category_text, setCategoryText] = useState('');
   const [selected_goal, setSelectedGoal] = useState('');
+  
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -28,12 +31,20 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
     setIsOpen(false);
   }
 
-  
-
   const handleNewGoal = (e) => {
-    AddGoal(goal_text);
+    let new_goal = {
+      value: goal_text,
+      label: goal_text,
+      category: category_text,
+    }
+    AddGoal(new_goal);
+
+    if (!categoryList.includes(category_text)) {
+      AddCategory(category_text)
+    }
 
     setGoalText('');
+    setCategoryText('')
   } 
 
   const handlePost = (e) => {
@@ -73,23 +84,29 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
                     <h1>Add New Goal</h1>
                     <div id="select">
                       <h3>Choose Goal Category</h3>
-                      <input id="goals-input" placeholder='Add New Category'/>
+                      <input 
+                        id="goals-input" 
+                        placeholder='Add New Category'
+                        onChange={(e) => setCategoryText(e.target.value)}
+                      />
                       <p>Or</p>
                       <Dropdown 
-                        options={goals_list} 
+                        options={categoryList} 
                         className='dropdown' 
                         placeholder='Choose Existing Category' 
                         value='Choose Existing Category'
-                        onChange={(e)=>setSelectedGoal(e.value)}
+                        onChange={(e)=>setCategoryText(e.value)}
                       />
                       <h3>Describe Goal</h3>
                       <textarea 
                           className='goal-description' 
                           placeholder='Goal Description'
+                          value={goal_text}
+                          onChange={(e)=>setGoalText(e.target.value)}
                           >
                         </textarea>
                     </div>
-                    <button className='btn-left' onClick={handlePost}>Post</button>
+                    <button className='btn-left' onClick={handleNewGoal}>Post</button>
                   </div>
                 </Modal>
 
@@ -97,18 +114,13 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
             </div>
           </div>
           <div className='goals-container'>
-            <div className='goals-content'>
-              <div className='goals-category'>
-                Goal Category
-              </div>
-              <ul className='ul' id='my-goals'>
-              <>
-              {goals_list.map((goal) => (
-                <Goal key={uuidv4()} goal={goal} friendsList={friendsList}/>
-              ))}
-              </>
-              </ul>
-            </div>
+            <ul>
+            <>
+            {categoryList.map((category) => (
+              <GoalCategory goals_list={goals_list} category={category} friendsList={friendsList}/>
+            ))}
+            </>
+            </ul>
           </div>
         </div>
         <div className='goals-right-container'>
@@ -120,7 +132,7 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
               placeholder='Select a goal' 
               value='Select a goal'
               onChange={(e)=>setSelectedGoal(e.value)}
-              />
+            />
               <textarea 
               className='post-input' 
               placeholder='Post an update'
