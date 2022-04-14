@@ -1,66 +1,37 @@
-import { createElement, React, useEffect, useState } from 'react'
+import { React,createElement, useEffect, useState } from 'react'
 import {v4 as uuidv4} from 'uuid'
 import './Goals.css'
 import SharedGoal from '../components/SharedGoal'
 import Goal from '../components/Goal'
 import Dropdown from 'react-dropdown';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import Modal from 'react-modal';
 
 const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
 
-  
-  // const axios = require('axios');
-
-  // const handlePost = () => {
-  //     axios.put('/share/:id', {
-  //         // text: 'testing the post',
-  //         // user: 'testUser'
-  //       })
-  //       .then(function (response) {
-  //         console.log(response);
-  //       })
-  //       .catch(function (error) {
-  //         console.log(error);
-  //       });
-  //   }
-
-  // const handleGoalPost = () => {
-  //   axios.post('/', {
-  //       text: 'testing the post',
-  //       user: 'testUser'
-  //     })
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  //   }
-
-
-  // useEffect(() => {
-  //   axios.get('/mygoals')
-  //   .then(function (response) {
-  //     options = JSON.parse(response);
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   })
-  // });
-
-  //const [options, setOptions] = useState(['']);
   const [goal_text, setGoalText] = useState();
   const [post_text, setPostText] = useState('');
   const [selected_goal, setSelectedGoal] = useState('');
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   
 
   const handleNewGoal = (e) => {
     AddGoal(goal_text);
-
-    // const newList = options.concat(goal_text);
-    // setOptions(newList);
 
     setGoalText('');
   } 
@@ -88,13 +59,41 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
         <div className='goals-left-container'> 
           <div className='new-goal-container'>
             <div className='new-goal'>
-             <textarea 
-              className='new-goal-input' 
-              placeholder='Add new goal'
-              value={goal_text}
-              onChange={(e) => setGoalText(e.target.value)}
-              ></textarea>
-             <button className='post-goal-btn' onClick={handleNewGoal}>Post</button>
+              <button className="new-goal-btn" onClick={openModal}>Add New Goal</button>
+              <Modal
+                  isOpen={modalIsOpen}
+                  onAfterOpen={afterOpenModal}
+                  onRequestClose={closeModal}
+                  // style={customStyles}
+                  className='Modal'
+
+                >
+                  {/* <button onClick={closeModal}>close</button> */}
+                  <div id="modal-container">
+                    <h1>Add New Goal</h1>
+                    <div id="select">
+                      <h3>Choose Goal Category</h3>
+                      <input id="goals-input" placeholder='Add New Category'/>
+                      <p>Or</p>
+                      <Dropdown 
+                        options={goals_list} 
+                        className='dropdown' 
+                        placeholder='Choose Existing Category' 
+                        value='Choose Existing Category'
+                        onChange={(e)=>setSelectedGoal(e.value)}
+                      />
+                      <h3>Describe Goal</h3>
+                      <textarea 
+                          className='goal-description' 
+                          placeholder='Goal Description'
+                          >
+                        </textarea>
+                    </div>
+                    <button className='btn-left' onClick={handlePost}>Post</button>
+                  </div>
+                </Modal>
+
+      
             </div>
           </div>
           <div className='goals-container'>
@@ -108,9 +107,6 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
                 <Goal key={uuidv4()} goal={goal} friendsList={friendsList}/>
               ))}
               </>
-                {/* <li className='goal-item'>Goal</li>
-                <li className='goal-item'>Goal</li>
-                <li className='goal-item'>Goal</li> */}
               </ul>
             </div>
           </div>
@@ -120,7 +116,7 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
             <div className='goals-post-content'>
               <Dropdown 
               options={goals_list} 
-              className='dropdown' 
+              className='update-dropdown' 
               placeholder='Select a goal' 
               value='Select a goal'
               onChange={(e)=>setSelectedGoal(e.value)}
