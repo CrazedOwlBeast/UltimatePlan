@@ -16,9 +16,9 @@ const Friends = ({friendsList, addFriend}) => {
 
 
   return (
-    <div className='profile'>
-        
+    <div className='friends'>
         <div className='friend-form'>
+        <h2>Add Friends</h2>
         <form className='form'>
             <input className='input' 
             value={friend}
@@ -28,7 +28,6 @@ const Friends = ({friendsList, addFriend}) => {
             />
             <button id='submit-friend' className='submit-btn' onClick={handleFriends}>Submit</button>
         </form>
-        </div>
         <div className='friends-list'>
                 <ul>
                     {friendsList.map((friend) => (
@@ -36,6 +35,7 @@ const Friends = ({friendsList, addFriend}) => {
                     ))}
                 </ul>
             </div>
+        </div>
     </div>
        
   )
