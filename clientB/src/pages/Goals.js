@@ -124,11 +124,11 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
           <div className='goals-container'>
             <h2 id="title">Goals</h2>
             <ul>
-            <>
+            {/* <> */}
             {categoryList.map((category) => (
               <GoalCategory goals_list={goals_list} category={category} friendsList={friendsList}/>
             ))}
-            </>
+            {/* </> */}
             </ul>
           </div>
         </div>
@@ -152,8 +152,7 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
               <button className='post-btn' onClick={handlePost}>Post</button>
             </div>
           </div>
-          <div className='feed'>
-            
+          <div className='feed'> 
             <>
               {posts.map((post) => (
                 <SharedGoal key={post.id} user={post.user} goal={post.goal} update={post.update}/>
