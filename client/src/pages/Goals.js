@@ -103,19 +103,8 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
   return (
     <div className='goals'>
         <div className='goals-left-container'> 
-          <div className='new-goal-container'>
-            <div className='new-goal'>
-             <textarea 
-              className='new-goal-input' 
-              placeholder='Add new goal'
-              value={goal_text}
-              onChange={(e) => setGoalText(e.target.value)}
-              ></textarea>
-             <button className='post-goal-btn' onClick={handleNewGoal}>Post</button>
-            </div>
-              
-          </div>
-          <div id="select">
+        <div id="select-cat">
+        <h2>Add New Goal</h2>
                   <h3>Choose Goal Category</h3>
                   <input 
                      id="goals-input" 
@@ -131,6 +120,34 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
                     onChange={(e)=>setCategoryText(e.value)}
                   />
               </div>
+          <div className='new-goal-container'>  
+            <div className='new-goal'>
+             <textarea 
+              className='new-goal-input' 
+              placeholder='Add new goal'
+              value={goal_text}
+              onChange={(e) => setGoalText(e.target.value)}
+              ></textarea>
+             <button className='post-goal-btn' onClick={handleNewGoal}>Post</button>
+            </div>
+              
+          </div>
+          {/* <div id="select">
+                  <h3>Choose Goal Category</h3>
+                  <input 
+                     id="goals-input" 
+                    placeholder='Add New Category'
+                    onChange={(e) => setCategoryText(e.target.value)}
+                  />
+                  <p>Or</p>
+                  <Dropdown 
+                    options={categoryList} 
+                    className='dropdown' 
+                    placeholder='Choose Existing Category' 
+                    value='Choose Existing Category'
+                    onChange={(e)=>setCategoryText(e.value)}
+                  />
+              </div> */}
           <div className='goals-container'>
           <ul>
             <>
@@ -142,6 +159,7 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
           </div>
         </div>
         <div className='goals-right-container'>
+        <h2>Goal Updates</h2>
           <div className='goals-input'>
             <div className='goals-post-content'>
               <Dropdown 
