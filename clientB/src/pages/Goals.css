@@ -15,9 +15,6 @@
 }
 
 .goals-container {
-    display: flex;
-    /* justify-content: center; */
-    flex-direction: column;
     margin: 3vh 3vw;
     background-color: #fff;
     width: 80%;
@@ -41,7 +38,6 @@
     text-transform: uppercase;
     font-weight: 500;
     font-size: 1em;
-
 }
 
 #my-goals {
