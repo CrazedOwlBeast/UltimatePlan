@@ -32,6 +32,14 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
   }
 
   const handleNewGoal = (e) => {
+    if (goal_text==='') {
+      alert('Please describe the goal')
+      return
+    }
+    if (category_text==='') {
+      alert('Please choose a category')
+      return
+    }
     let new_goal = {
       value: goal_text,
       label: goal_text,
