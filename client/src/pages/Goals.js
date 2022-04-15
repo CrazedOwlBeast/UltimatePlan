@@ -6,8 +6,9 @@ import Goal from '../components/Goal'
 import Dropdown from 'react-dropdown';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import GoalCategory from '../components/GoalCategory'
 
-const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
+const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPost, AddGoal}) => {
 
   
   // const axios = require('axios');
@@ -53,16 +54,32 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
   //const [options, setOptions] = useState(['']);
   const [goal_text, setGoalText] = useState();
   const [post_text, setPostText] = useState('');
+  const [category_text, setCategoryText] = useState('');
   const [selected_goal, setSelectedGoal] = useState('');
   
 
   const handleNewGoal = (e) => {
-    AddGoal(goal_text);
+    if (goal_text==='') {
+      alert('Please describe the goal')
+      return
+    }
+    if (category_text==='') {
+      alert('Please choose a category')
+      return
+    }
+    let new_goal = {
+      value: goal_text,
+      label: goal_text,
+      category: category_text,
+    }
+    AddGoal(new_goal);
 
-    // const newList = options.concat(goal_text);
-    // setOptions(newList);
+    if (!categoryList.includes(category_text)) {
+      AddCategory(category_text)
+    }
 
     setGoalText('');
+    setCategoryText('')
   } 
 
   const handlePost = (e) => {
@@ -96,23 +113,32 @@ const Goals = ({friendsList, goals_list, posts, AddPost, AddGoal}) => {
               ></textarea>
              <button className='post-goal-btn' onClick={handleNewGoal}>Post</button>
             </div>
+              
           </div>
-          <div className='goals-container'>
-            <div className='goals-content'>
-              <div className='goals-category'>
-                Goal Category
+          <div id="select">
+                  <h3>Choose Goal Category</h3>
+                  <input 
+                     id="goals-input" 
+                    placeholder='Add New Category'
+                    onChange={(e) => setCategoryText(e.target.value)}
+                  />
+                  <p>Or</p>
+                  <Dropdown 
+                    options={categoryList} 
+                    className='dropdown' 
+                    placeholder='Choose Existing Category' 
+                    value='Choose Existing Category'
+                    onChange={(e)=>setCategoryText(e.value)}
+                  />
               </div>
-              <ul className='ul' id='my-goals'>
-              <>
-              {goals_list.map((goal) => (
-                <Goal key={uuidv4()} goal={goal} friendsList={friendsList}/>
-              ))}
-              </>
-                {/* <li className='goal-item'>Goal</li>
-                <li className='goal-item'>Goal</li>
-                <li className='goal-item'>Goal</li> */}
-              </ul>
-            </div>
+          <div className='goals-container'>
+          <ul>
+            <>
+            {categoryList.map((category) => (
+              <GoalCategory goals_list={goals_list} category={category} friendsList={friendsList}/>
+            ))}
+            </>
+            </ul>
           </div>
         </div>
         <div className='goals-right-container'>

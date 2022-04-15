@@ -13,7 +13,14 @@ const App = () => {
 
 const [loggedIn, setLoggedIn] = useState(false);
 const [friendsList, setFriendsList] = useState(['Jane Doe']);
-const [goals_list, setGoalsList] = useState(['Example Goal 1']);
+const [goals_list, setGoalsList] = useState([
+  {
+    value: 'Example Goal 1',
+    label:'Example Goal 1',
+    category: 'School Work'
+  }
+]);
+const [categoryList, setCategoryList] = useState(['School Work'])
 const [posts, setPosts] = useState([
   { 
     id: 1,
@@ -37,6 +44,11 @@ const [posts, setPosts] = useState([
     date: new Date('2022-03-10'),
   },
 ])
+
+const AddCategory = (category) => {
+  const newList = categoryList.concat(category);
+  setCategoryList(newList);
+}
 
 //Add Friend
 const addFriend = (friend) => {
@@ -66,7 +78,7 @@ const AddPost = (post) => {
       <Routes>
         <Route path='/' element={<Home loggedIn={loggedIn} login={setlogin} />}/>
         <Route path='/Weekly' element={<Weekly loggedIn={loggedIn}/>}/>
-        <Route path='/Goals' element={<Goals posts={posts} goals_list={goals_list} AddPost={AddPost} AddGoal={AddGoal} loggedIn={loggedIn} friendsList={friendsList}/>}/>
+        <Route path='/Goals' element={<Goals categoryList={categoryList} AddCategory={AddCategory} posts={posts} goals_list={goals_list} AddPost={AddPost} AddGoal={AddGoal} loggedIn={loggedIn} friendsList={friendsList}/>}/>
         <Route path='/Profile' element={<Profile loggedIn={loggedIn} addFriend={addFriend} friendsList={friendsList} />}/>
         <Route path='/Login' element={<Login login={setlogin} />}/>
       </Routes>

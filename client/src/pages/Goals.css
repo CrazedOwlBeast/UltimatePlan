@@ -162,3 +162,17 @@
     font-family: 'Roboto Serif', sans-serif;
     padding: 1vh;
 }
+
+#goals-input {
+    border: none;
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    font-size: 1em;
+    font-family: 'Roboto Serif', sans-serif;
+    padding: 1vh;
+}
+
+#select {
+    width: 100%;
+}
