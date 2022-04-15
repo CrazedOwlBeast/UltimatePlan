@@ -137,6 +137,7 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
                   <input 
                      id="goals-input" 
                     placeholder='Add New Category'
+                    value={category_text}
                     onChange={(e) => setCategoryText(e.target.value)}
                   />
                   <p>Or</p>
