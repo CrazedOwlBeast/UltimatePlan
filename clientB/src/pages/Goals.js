@@ -122,6 +122,7 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
             </div>
           </div>
           <div className='goals-container'>
+            <h2 id="title">Goals</h2>
             <ul>
             <>
             {categoryList.map((category) => (
@@ -132,6 +133,7 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
           </div>
         </div>
         <div className='goals-right-container'>
+        <h2>Post an update</h2>
           <div className='goals-input'>
             <div className='goals-post-content'>
               <Dropdown 
@@ -151,6 +153,7 @@ const Goals = ({categoryList, AddCategory, friendsList, goals_list, posts, AddPo
             </div>
           </div>
           <div className='feed'>
+            
             <>
               {posts.map((post) => (
                 <SharedGoal key={post.id} user={post.user} goal={post.goal} update={post.update}/>

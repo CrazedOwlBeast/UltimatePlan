@@ -25,23 +25,23 @@ const [categoryList, setCategoryList] = useState(['School Work'])
 const [posts, setPosts] = useState([
   { 
     id: 1,
-    user: 'User',
-    goal: 'random goal',
-    update: 'random update',
+    user: 'Jane Doe',
+    goal: 'Run a 5k by August',
+    update: 'Just jogged 3 miles without stopping!',
     date: new Date('2022-01-10'),
   },
   { 
     id: 2,
-    user: 'User',
-    goal: 'random goal',
-    update: 'random update',
+    user: 'John Doe',
+    goal: 'Improve grades',
+    update: 'Aced an exam today!',
     date: new Date('2022-02-10'),
   },
   { 
     id: 3,
-    user: 'User',
-    goal: 'random goal',
-    update: 'random update',
+    user: 'Jill Doe',
+    goal: 'Get a car',
+    update: 'Earned 500 dollars today!',
     date: new Date('2022-03-10'),
   },
 ])

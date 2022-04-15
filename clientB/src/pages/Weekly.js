@@ -162,7 +162,7 @@ const Weekly = () => {
           </div>
         </div>
         <div className='post-input-container'>
-          <textarea value={input} onChange={(e) => setInput(e.target.value)} className='weekly-post-input'/> 
+          <textarea placeholder="Add a task" value={input} onChange={(e) => setInput(e.target.value)} className='weekly-post-input'/> 
         </div>
           <button className='submit-btn' onClick={postTask}>Submit</button>
       </div>
