@@ -16,15 +16,16 @@
 
 .goals-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
     margin: 3vh 3vw;
     background-color: #fff;
     width: 80%;
-    height: 80vh;
+    height: 100%;
     border-radius: 5px;
     box-shadow: 4px 4px 8px rgb(187, 187, 187);
 }
+
 
 
 .new-goal-container {
@@ -74,16 +75,20 @@
 
 .goals-content {
     width: 90%;
-    height: 90%;
+    height: 12%;
+    margin: 0;
 }
 
 .goals-category {
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 2.5vh;
+    font-size: 1em;
+
 }
 
-.ul {
+ul {
+    width: 100%;
+
 }
 
 .goal-item {
@@ -175,4 +180,8 @@
 
 #select {
     width: 100%;
+}
+
+#my-goals {
+    width: 80%;
 }
