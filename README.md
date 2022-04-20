@@ -9,7 +9,7 @@ https://ultimateplan1.netlify.app/
 <br />
 https://ultimateplan2.netlify.app/
 
-*The backend is currently disabled to expedite user studies for the design variations.*
+**The backend is currently disabled to expedite user studies for the design variations.*
 
 ### Local Testing
 To test one of the design variations on your local computer, you can clone the repository and follow these instructions:
